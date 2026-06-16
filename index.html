@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    Hi, This is my Blog.
+    <!-- 实现一个按钮，可以切换下面两个定时器 -->
+    <button id="toggle">Toggle Timers</button>
+    <script>
+      const toggleButton = document.getElementById('toggle')
+      let timer1 = null
+      let timer2 = null
+
+      toggleButton.addEventListener('click', () => {
+        if (timer1) {
+          clearInterval(timer1)
+          timer1 = null
+          timer2 = setInterval(() => {
+            console.log('456')
+          }, 50)
+        } else if (timer2) {
+          clearInterval(timer2)
+          timer2 = null
+          timer1 = setInterval(() => {
+            console.log('123')
+          }, 1000)
+        } else {
+          timer1 = setInterval(() => {
+            console.log('123')
+          }, 1000)
+        }
+      })
+    </script>
   </body>
 </html>
